@@ -29,5 +29,7 @@ namespace MIS4200ProjectTeam7.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<MIS4200ProjectTeam7.Models.ProfileInfo> ProfileInfoes { get; set; }
     }
 }

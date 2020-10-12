@@ -20,9 +20,9 @@ namespace MIS4200ProjectTeam7.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Profile()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Your Profile page.";
 
             return View();
         }
