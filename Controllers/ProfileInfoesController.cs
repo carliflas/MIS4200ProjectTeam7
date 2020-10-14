@@ -6,18 +6,19 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using MIS4200ProjectTeam7.DAL;
 using MIS4200ProjectTeam7.Models;
 
 namespace MIS4200ProjectTeam7.Controllers
 {
     public class ProfileInfoesController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private MIS4200Team7Context db = new MIS4200Team7Context();
 
         // GET: ProfileInfoes
         public ActionResult Index()
         {
-            return View(db.ProfileInfoes.ToList());
+            return View(db.ProfileInfos.ToList());
         }
 
         // GET: ProfileInfoes/Details/5
@@ -27,7 +28,7 @@ namespace MIS4200ProjectTeam7.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ProfileInfo profileInfo = db.ProfileInfoes.Find(id);
+            ProfileInfo profileInfo = db.ProfileInfos.Find(id);
             if (profileInfo == null)
             {
                 return HttpNotFound();
@@ -50,7 +51,7 @@ namespace MIS4200ProjectTeam7.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.ProfileInfoes.Add(profileInfo);
+                db.ProfileInfos.Add(profileInfo);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +66,7 @@ namespace MIS4200ProjectTeam7.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ProfileInfo profileInfo = db.ProfileInfoes.Find(id);
+            ProfileInfo profileInfo = db.ProfileInfos.Find(id);
             if (profileInfo == null)
             {
                 return HttpNotFound();
@@ -96,7 +97,7 @@ namespace MIS4200ProjectTeam7.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ProfileInfo profileInfo = db.ProfileInfoes.Find(id);
+            ProfileInfo profileInfo = db.ProfileInfos.Find(id);
             if (profileInfo == null)
             {
                 return HttpNotFound();
@@ -109,8 +110,8 @@ namespace MIS4200ProjectTeam7.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ProfileInfo profileInfo = db.ProfileInfoes.Find(id);
-            db.ProfileInfoes.Remove(profileInfo);
+            ProfileInfo profileInfo = db.ProfileInfos.Find(id);
+            db.ProfileInfos.Remove(profileInfo);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
