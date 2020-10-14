@@ -10,21 +10,42 @@ namespace MIS4200ProjectTeam7.Models
     {
 
         [Key]
-        public int profileId { get; set; }
+        public Guid ProfileId { get; set; }
 
+        [Required]
+        [Display(Name = "First Name")]
         public string firstName { get; set; }
+        [StringLength(20)]
 
+        [Required]
+        [Display(Name = "Last Name")]
+        
         public string lastName { get; set; }
-        public string fullname { get; set; }
 
+
+        [Display(Name = "Business Unit")]
         public string bizUnit { get; set; }
 
+        [Display(Name = "Hire Date")]
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
+        [Required]
         public DateTime hireDate { get; set; }
 
+        [Display(Name = "Short Bio")]
+        [StringLength(500)]
         public string bio { get; set; }
 
+        [Required]
+        [Display(Name = "Primary Phone")]
+        [Phone]
+        [StringLength(20)]
         public string phone { get; set; }
 
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Email")]
         public string email { get; set; }
+
+       
     }
 }

@@ -22,7 +22,7 @@ namespace MIS4200ProjectTeam7.Controllers
         }
 
         // GET: ProfileInfoes/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(Guid? id)
         {
             if (id == null)
             {
@@ -47,10 +47,11 @@ namespace MIS4200ProjectTeam7.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "profileId,firstName,lastName,fullname,bizUnit,hireDate,bio,phone,email")] ProfileInfo profileInfo)
+        public ActionResult Create([Bind(Include = "ProfileId,firstName,lastName,bizUnit,hireDate,bio,phone,email")] ProfileInfo profileInfo)
         {
             if (ModelState.IsValid)
             {
+                profileInfo.ProfileId = Guid.NewGuid();
                 db.ProfileInfos.Add(profileInfo);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -60,7 +61,7 @@ namespace MIS4200ProjectTeam7.Controllers
         }
 
         // GET: ProfileInfoes/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(Guid? id)
         {
             if (id == null)
             {
@@ -79,7 +80,7 @@ namespace MIS4200ProjectTeam7.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "profileId,firstName,lastName,fullname,bizUnit,hireDate,bio,phone,email")] ProfileInfo profileInfo)
+        public ActionResult Edit([Bind(Include = "ProfileId,firstName,lastName,bizUnit,hireDate,bio,phone,email")] ProfileInfo profileInfo)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +92,7 @@ namespace MIS4200ProjectTeam7.Controllers
         }
 
         // GET: ProfileInfoes/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(Guid? id)
         {
             if (id == null)
             {
@@ -108,7 +109,7 @@ namespace MIS4200ProjectTeam7.Controllers
         // POST: ProfileInfoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(Guid id)
         {
             ProfileInfo profileInfo = db.ProfileInfos.Find(id);
             db.ProfileInfos.Remove(profileInfo);
