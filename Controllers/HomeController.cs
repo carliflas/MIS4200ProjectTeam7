@@ -15,14 +15,14 @@ namespace MIS4200ProjectTeam7.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+       
 
             return View();
         }
 
         public ActionResult Profile()
         {
-            ViewBag.Message = "Your Profile page.";
+         
 
             return View();
         }
