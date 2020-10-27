@@ -3,21 +3,22 @@
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
-    @Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
 
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-        </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-    </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+        </ul>
     }
 }
 else
 {
-<ul class="nav navbar-nav navbar-right">
-    
-        <p> <a href="https://cob.ohio.edu/mis4200team7/Account/Register" class="btn btn-link btn-group-lg">Register &raquo;</a> <a href=https://cob.ohio.edu/mis4200team7/Account/Login class="btn btn-link btn-group-lg">Login &raquo;</a></p>
+    <ul class="nav navbar-nav navbar-right">
 
-</ul>
+        <a href="Account/Register" class="btn btn-link btn-group-lg">Register &raquo;</a>
+        <a href="Account/Login" class="btn btn-link btn-group-lg">Login &raquo;</a>
+
+    </ul>
 }
