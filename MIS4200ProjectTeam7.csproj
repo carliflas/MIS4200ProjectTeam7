@@ -249,16 +249,16 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\ProfileInfoes\Create.cshtml" />
-    <Content Include="Views\ProfileInfoes\Delete.cshtml" />
-    <Content Include="Views\ProfileInfoes\Details.cshtml" />
-    <Content Include="Views\ProfileInfoes\Edit.cshtml" />
-    <Content Include="Views\ProfileInfoes\Index.cshtml" />
     <Content Include="Views\CoreValues\Create.cshtml" />
     <Content Include="Views\CoreValues\Delete.cshtml" />
     <Content Include="Views\CoreValues\Details.cshtml" />
     <Content Include="Views\CoreValues\Edit.cshtml" />
     <Content Include="Views\CoreValues\Index.cshtml" />
+    <Content Include="Views\ProfileInfoes\Create.cshtml" />
+    <Content Include="Views\ProfileInfoes\Delete.cshtml" />
+    <Content Include="Views\ProfileInfoes\Details.cshtml" />
+    <Content Include="Views\ProfileInfoes\Edit.cshtml" />
+    <Content Include="Views\ProfileInfoes\Index.cshtml" />
     <Content Include="Views\ProfileInfoes\ProfDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>

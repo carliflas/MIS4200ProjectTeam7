@@ -23,25 +23,11 @@ namespace MIS4200ProjectTeam7.Controllers
         }
 
         // GET: ProfileInfoes/Details/5
-        public ActionResult Details(Guid? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ProfileInfo profileInfo = db.ProfileInfos.Find(id);
-            if (profileInfo == null)
-            {
-                return HttpNotFound();
-            }
-            return View(profileInfo);
-        }
-
         public ActionResult ProfDetails()
         {
             Guid id;
             Guid.TryParse(User.Identity.GetUserId(), out id);
-            
+
             ProfileInfo profileInfo = db.ProfileInfos.Find(id);
             if (profileInfo == null)
             {
@@ -61,11 +47,10 @@ namespace MIS4200ProjectTeam7.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProfileId,firstName,lastName,bizUnit,hireDate,bio,phone,email")] ProfileInfo profileInfo)
+        public ActionResult Create([Bind(Include = "ProfileId,firstName,lastName,bizUnit,empTitle,hireDate,bio,phone")] ProfileInfo profileInfo)
         {
             if (ModelState.IsValid)
             {
-                //  profileInfo.ProfileId = Guid.NewGuid();
                 Guid memberId;
                 Guid.TryParse(User.Identity.GetUserId(), out memberId);
                 profileInfo.ProfileId = memberId;
@@ -97,7 +82,7 @@ namespace MIS4200ProjectTeam7.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProfileId,firstName,lastName,bizUnit,hireDate,bio,phone,email")] ProfileInfo profileInfo)
+        public ActionResult Edit([Bind(Include = "ProfileId,firstName,lastName,bizUnit,empTitle,hireDate,bio,phone")] ProfileInfo profileInfo)
         {
             if (ModelState.IsValid)
             {

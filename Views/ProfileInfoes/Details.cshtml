@@ -1,10 +1,10 @@
 ﻿@model MIS4200ProjectTeam7.Models.ProfileInfo
 
 @{
-    ViewBag.Title = "Profile Details";
+    ViewBag.Title = "Details";
 }
 
-<h2>Details of Your Profile</h2>
+<h2>Details</h2>
 
 <div>
     <h4>ProfileInfo</h4>
@@ -35,6 +35,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.empTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.empTitle)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.hireDate)
         </dt>
 
@@ -56,14 +64,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.phone)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.email)
         </dd>
 
     </dl>

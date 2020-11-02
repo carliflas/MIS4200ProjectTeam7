@@ -26,6 +26,9 @@ namespace MIS4200ProjectTeam7.Models
         [Display(Name = "Business Unit")]
         public string bizUnit { get; set; }
 
+        [Display(Name = "Employee Title")]
+        public string empTitle { get; set; }
+
         [Display(Name = "Hire Date")]
         [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         [Required]
@@ -41,11 +44,7 @@ namespace MIS4200ProjectTeam7.Models
         [StringLength(20)]
         public string phone { get; set; }
 
-        [Required]
-        [EmailAddress]
-        [Display(Name = "Email")]
-        public string email { get; set; }
+        }
 
        
     }
-}

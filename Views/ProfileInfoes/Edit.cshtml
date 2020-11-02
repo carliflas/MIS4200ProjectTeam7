@@ -1,10 +1,10 @@
 ﻿@model MIS4200ProjectTeam7.Models.ProfileInfo
 
 @{
-    ViewBag.Title = "Edit a Profile";
+    ViewBag.Title = "Edit";
 }
 
-<h2>Edit Mode</h2>
+<h2>Edit</h2>
 
 
 @using (Html.BeginForm())
@@ -42,6 +42,14 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.empTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.empTitle, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.empTitle, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
             @Html.LabelFor(model => model.hireDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.hireDate, new { htmlAttributes = new { @class = "form-control" } })
@@ -62,14 +70,6 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.phone, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.phone, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
             </div>
         </div>
 
