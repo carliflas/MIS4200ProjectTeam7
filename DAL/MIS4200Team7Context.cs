@@ -18,6 +18,6 @@ namespace MIS4200ProjectTeam7.DAL
 
         public DbSet <ProfileInfo> ProfileInfos { get; set; }
 
-        public System.Data.Entity.DbSet<MIS4200ProjectTeam7.Models.CoreValues> CoreValues { get; set; }
+        public DbSet <CoreValues> CoreValues { get; set; }
     }
 }

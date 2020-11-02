@@ -37,6 +37,19 @@ namespace MIS4200ProjectTeam7.Controllers
             return View(profileInfo);
         }
 
+        public ActionResult ProfDetails()
+        {
+            Guid id;
+            Guid.TryParse(User.Identity.GetUserId(), out id);
+            
+            ProfileInfo profileInfo = db.ProfileInfos.Find(id);
+            if (profileInfo == null)
+            {
+                return HttpNotFound();
+            }
+            return View(profileInfo);
+        }
+
         // GET: ProfileInfoes/Create
         public ActionResult Create()
         {
