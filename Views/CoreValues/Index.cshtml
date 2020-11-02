@@ -1,112 +1,14 @@
 ﻿@model IEnumerable<MIS4200ProjectTeam7.Models.CoreValues>
 
 @{
-    ViewBag.Title = "Core Value Recognition";
+    ViewBag.Title = "Index";
 }
 
-<h2>Employee Core Value Recognitions</h2>
+<h2>Index</h2>
 
-
-<a  href= https://localhost:44302/CoreValues/Create class="btn-success">Create New Recognition </a> 
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-    .dropbtn {
-        background-color: #4CAF50;
-        color: white;
-        padding: 16px;
-        font-size: 16px;
-        border: none;
-        cursor: pointer;
-    }
-
-        .dropbtn:hover, .dropbtn:focus {
-            background-color: #3e8e41;
-        }
-
-    #myInput {
-        box-sizing: border-box;
-        background-image: url('searchicon.png');
-        background-position: 14px 12px;
-        background-repeat: no-repeat;
-        font-size: 16px;
-        padding: 14px 20px 12px 45px;
-        border: none;
-        border-bottom: 1px solid #ddd;
-    }
-
-        #myInput:focus {
-            outline: 3px solid #ddd;
-        }
-
-    .dropdown {
-        position: relative;
-        display: inline-block;
-    }
-
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f6f6f6;
-        min-width: 230px;
-        overflow: auto;
-        border: 1px solid #ddd;
-        z-index: 1;
-    }
-
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-    .dropdown a:hover {
-        background-color: #ddd;
-    }
-
-    .show {
-        display: block;
-    }
-</style>
-
-<div class="Search">
-    <button onclick="myFunction()" class="btn-default">Search All Recognitions</button>
-    <div id="myDropdown2" class="dropdown-content">
-        <input type="text" placeholder="Search.." id="myInput2" onkeyup="filterFunction()">
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a href="#custom">Custom</a>
-        <a href="#support">Support</a>
-        <a href="#tools">Tools</a>
-    </div>
-</div>
-
-<script>
-            /* When the user clicks on the button,
-            toggle between hiding and showing the dropdown content */
-            function myFunction() {
-                document.getElementById("myDropdown2").classList.toggle("show");
-            }
-
-            function filterFunction() {
-                var input, filter, ul, li, a, i;
-                input = document.getElementById("myInput2");
-                filter = input.value.toUpperCase();
-                div = document.getElementById("myDropdown2");
-                a = div.getElementsByTagName("a");
-                for (i = 0; i < a.length; i++) {
-                    txtValue = a[i].textContent || a[i].innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        a[i].style.display = "";
-                    } else {
-                        a[i].style.display = "none";
-                    }
-                }
-            }
-</script>
-
-
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 <table class="table">
     <tr>
         <th>
@@ -119,32 +21,37 @@
             @Html.DisplayNameFor(model => model.recognized)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.recognizationDate)
         </th>
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.award)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.recognizor)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.recognized)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.recognizationDate)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-            </td>
-        </tr>
-    }
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.award)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.recognizor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.recognized)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.recognizationDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
 
 </table>
