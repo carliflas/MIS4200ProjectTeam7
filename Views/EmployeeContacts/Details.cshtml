@@ -1,4 +1,4 @@
-﻿@model MIS4200ProjectTeam7.Models.ProfileInfo
+﻿@model MIS4200ProjectTeam7.Models.EmployeeContact
 
 @{
     ViewBag.Title = "Details";
@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>ProfileInfo</h4>
+    <h4>EmployeeContact</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -27,35 +27,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.bizUnit)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.bizUnit)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.empTitle)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.empTitle)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.hireDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.hireDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.bio)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.bio)
         </dd>
 
         <dt>
@@ -67,16 +43,16 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.WorkEmail)
+            @Html.DisplayNameFor(model => model.email)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.WorkEmail)
+            @Html.DisplayFor(model => model.email)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ProfileId }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ContactId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

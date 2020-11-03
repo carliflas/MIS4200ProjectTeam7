@@ -169,6 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CoreValuesController.cs" />
+    <Compile Include="Controllers\EmployeeContactsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProfileInfoesController.cs" />
@@ -179,6 +180,7 @@
     <Compile Include="Migrations\MISContext\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CoreValues.cs" />
+    <Compile Include="Models\EmployeeContact.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ProfileInfo.cs" />
@@ -249,12 +251,18 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\ProfileInfoes\ProfDetails.cshtml" />
+    <Content Include="Views\EmployeeContacts\Create.cshtml" />
+    <Content Include="Views\EmployeeContacts\Delete.cshtml" />
+    <Content Include="Views\EmployeeContacts\Details.cshtml" />
+    <Content Include="Views\EmployeeContacts\Edit.cshtml" />
+    <Content Include="Views\EmployeeContacts\Index.cshtml" />
+    <Content Include="Views\ProfileInfoes\EmployeeContact.cshtml" />
     <Content Include="Views\ProfileInfoes\Create.cshtml" />
     <Content Include="Views\ProfileInfoes\Delete.cshtml" />
     <Content Include="Views\ProfileInfoes\Details.cshtml" />
     <Content Include="Views\ProfileInfoes\Edit.cshtml" />
     <Content Include="Views\ProfileInfoes\Index.cshtml" />
-    <Content Include="Views\ProfileInfoes\ProfDetails.cshtml" />
     <Content Include="Views\CoreValues\Create.cshtml" />
     <Content Include="Views\CoreValues\Delete.cshtml" />
     <Content Include="Views\CoreValues\Details.cshtml" />

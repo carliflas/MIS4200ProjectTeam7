@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MIS4200ProjectTeam7.Models.ProfileInfo>
+﻿@model IEnumerable<MIS4200ProjectTeam7.Models.EmployeeContact>
 
 @{
     ViewBag.Title = "Index";
@@ -18,22 +18,13 @@
             @Html.DisplayNameFor(model => model.lastName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.bizUnit)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.empTitle)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.hireDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.bio)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.phone)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.WorkEmail)
+            @Html.DisplayNameFor(model => model.email)
         </th>
         <th></th>
     </tr>
@@ -47,27 +38,18 @@
             @Html.DisplayFor(modelItem => item.lastName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.bizUnit)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.empTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.hireDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.bio)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.phone)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.WorkEmail)
+            @Html.DisplayFor(modelItem => item.email)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProfileId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProfileId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProfileId })
+            @Html.ActionLink("Edit", "Edit", new { id=item.ContactId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ContactId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ContactId })
         </td>
     </tr>
 }

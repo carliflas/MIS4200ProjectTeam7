@@ -19,5 +19,7 @@ namespace MIS4200ProjectTeam7.DAL
         public DbSet <ProfileInfo> ProfileInfos { get; set; }
 
         public DbSet <CoreValues> CoreValues { get; set; }
+
+        public System.Data.Entity.DbSet<MIS4200ProjectTeam7.Models.EmployeeContact> EmployeeContacts { get; set; }
     }
 }

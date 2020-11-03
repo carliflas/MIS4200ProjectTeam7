@@ -6,126 +6,112 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
 using MIS4200ProjectTeam7.DAL;
 using MIS4200ProjectTeam7.Models;
 
 namespace MIS4200ProjectTeam7.Controllers
 {
-    public class ProfileInfoesController : Controller
+    public class EmployeeContactsController : Controller
     {
         private MIS4200Team7Context db = new MIS4200Team7Context();
 
-        // GET: ProfileInfoes
+        // GET: EmployeeContacts
         public ActionResult Index()
         {
-            return View(db.ProfileInfos.ToList());
+            return View(db.EmployeeContacts.ToList());
         }
 
-        // GET: ProfileInfoes/Details/5
-        public ActionResult ProfDetails()
+        // GET: EmployeeContacts/Details/5
+        public ActionResult Details(int? id)
         {
-            Guid id;
-            Guid.TryParse(User.Identity.GetUserId(), out id);
-
-            ProfileInfo profileInfo = db.ProfileInfos.Find(id);
-            if (profileInfo == null)
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            EmployeeContact employeeContact = db.EmployeeContacts.Find(id);
+            if (employeeContact == null)
             {
                 return HttpNotFound();
             }
-            return View(profileInfo);
+            return View(employeeContact);
         }
 
-        public ActionResult EmployeeContact()
-        {
-            Guid id;
-            Guid.TryParse(User.Identity.GetUserId(), out id);
-
-            ProfileInfo profileInfo = db.ProfileInfos.Find(id);
-            if (profileInfo == null)
-            {
-                return HttpNotFound();
-            }
-            return View(profileInfo);
-        }
-
-        // GET: ProfileInfoes/Create
+        // GET: EmployeeContacts/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: ProfileInfoes/Create
+        // POST: EmployeeContacts/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProfileId,firstName,lastName,bizUnit,empTitle,hireDate,bio,phone,WorkEmail")] ProfileInfo profileInfo)
+        public ActionResult Create([Bind(Include = "ContactId,firstName,lastName,empTitle,phone,email")] EmployeeContact employeeContact)
         {
             if (ModelState.IsValid)
             {
-                profileInfo.ProfileId = Guid.NewGuid();
-                db.ProfileInfos.Add(profileInfo);
+                db.EmployeeContacts.Add(employeeContact);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(profileInfo);
+            return View(employeeContact);
         }
 
-        // GET: ProfileInfoes/Edit/5
-        public ActionResult Edit(Guid? id)
+        // GET: EmployeeContacts/Edit/5
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ProfileInfo profileInfo = db.ProfileInfos.Find(id);
-            if (profileInfo == null)
+            EmployeeContact employeeContact = db.EmployeeContacts.Find(id);
+            if (employeeContact == null)
             {
                 return HttpNotFound();
             }
-            return View(profileInfo);
+            return View(employeeContact);
         }
 
-        // POST: ProfileInfoes/Edit/5
+        // POST: EmployeeContacts/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProfileId,firstName,lastName,bizUnit,empTitle,hireDate,bio,phone,WorkEmail")] ProfileInfo profileInfo)
+        public ActionResult Edit([Bind(Include = "ContactId,firstName,lastName,empTitle,phone,email")] EmployeeContact employeeContact)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(profileInfo).State = EntityState.Modified;
+                db.Entry(employeeContact).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(profileInfo);
+            return View(employeeContact);
         }
 
-        // GET: ProfileInfoes/Delete/5
-        public ActionResult Delete(Guid? id)
+        // GET: EmployeeContacts/Delete/5
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ProfileInfo profileInfo = db.ProfileInfos.Find(id);
-            if (profileInfo == null)
+            EmployeeContact employeeContact = db.EmployeeContacts.Find(id);
+            if (employeeContact == null)
             {
                 return HttpNotFound();
             }
-            return View(profileInfo);
+            return View(employeeContact);
         }
 
-        // POST: ProfileInfoes/Delete/5
+        // POST: EmployeeContacts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(Guid id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            ProfileInfo profileInfo = db.ProfileInfos.Find(id);
-            db.ProfileInfos.Remove(profileInfo);
+            EmployeeContact employeeContact = db.EmployeeContacts.Find(id);
+            db.EmployeeContacts.Remove(employeeContact);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -44,7 +44,12 @@ namespace MIS4200ProjectTeam7.Models
         [StringLength(20)]
         public string phone { get; set; }
 
-        }
+
+        [Required]
+        [Display(Name = "Work Email")]
+        [EmailAddress]
+             public string WorkEmail { get; set; }
+    }
 
        
     }
