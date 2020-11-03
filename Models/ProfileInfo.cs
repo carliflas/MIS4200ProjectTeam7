@@ -19,7 +19,7 @@ namespace MIS4200ProjectTeam7.Models
 
         [Required]
         [Display(Name = "Last Name")]
-        
+
         public string lastName { get; set; }
 
 
@@ -48,7 +48,10 @@ namespace MIS4200ProjectTeam7.Models
         [Required]
         [Display(Name = "Work Email")]
         [EmailAddress]
-             public string WorkEmail { get; set; }
+        public string WorkEmail { get; set; }
+
+
+        public ICollection<CoreValues> coreValues { get; set; }
     }
 
        

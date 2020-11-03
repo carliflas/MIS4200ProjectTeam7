@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -27,6 +28,14 @@ namespace MIS4200ProjectTeam7.Models
        
         [Display(Name = "Date of recognition")]
         public DateTime recognizationDate { get; set; }
+
+       [ForeignKey("recognized")]
+        public virtual ProfileInfo nominee { get; set; }
+
+        [ForeignKey("recognizor")]
+        public virtual ProfileInfo nominator { get; set; }
+
+
         public enum CoreValue
         {
             Excellence = 1,
@@ -36,6 +45,7 @@ namespace MIS4200ProjectTeam7.Models
             Balance = 5,
                 Culture = 6,
                 Passion = 7
+
         }
     }
 }
