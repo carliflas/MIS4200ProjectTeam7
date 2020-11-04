@@ -59,11 +59,11 @@ namespace MIS4200ProjectTeam7.Models
         [EmailAddress]
         public string WorkEmail { get; set; }
 
-        [ForeignKey("workerId")]
-        public ICollection<position> worker { get; set; }
+        [ForeignKey("recognized")]
+        public ICollection<CoreValues> nominator { get; set; }
 
-        [ForeignKey("bossId")]
-        public ICollection<position> boss { get; set; }
+        [ForeignKey("recognizor")]
+        public ICollection<CoreValues> nominee { get; set; }
     }
 
 

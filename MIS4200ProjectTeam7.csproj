@@ -183,7 +183,6 @@
     <Compile Include="Models\EmployeeContact.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\position.cs" />
     <Compile Include="Models\ProfileInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -259,16 +258,16 @@
     <Content Include="Views\EmployeeContacts\Edit.cshtml" />
     <Content Include="Views\EmployeeContacts\Index.cshtml" />
     <Content Include="Views\ProfileInfoes\EmployeeContact.cshtml" />
-    <Content Include="Views\ProfileInfoes\Create.cshtml" />
-    <Content Include="Views\ProfileInfoes\Delete.cshtml" />
-    <Content Include="Views\ProfileInfoes\Details.cshtml" />
-    <Content Include="Views\ProfileInfoes\Edit.cshtml" />
-    <Content Include="Views\ProfileInfoes\Index.cshtml" />
     <Content Include="Views\CoreValues\Create.cshtml" />
     <Content Include="Views\CoreValues\Delete.cshtml" />
     <Content Include="Views\CoreValues\Details.cshtml" />
     <Content Include="Views\CoreValues\Edit.cshtml" />
     <Content Include="Views\CoreValues\Index.cshtml" />
+    <Content Include="Views\ProfileInfoes\Create.cshtml" />
+    <Content Include="Views\ProfileInfoes\Delete.cshtml" />
+    <Content Include="Views\ProfileInfoes\Details.cshtml" />
+    <Content Include="Views\ProfileInfoes\Edit.cshtml" />
+    <Content Include="Views\ProfileInfoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

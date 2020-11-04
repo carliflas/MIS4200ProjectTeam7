@@ -12,13 +12,13 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.nominator.firstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nominee.firstName)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.award)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.recognizor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.recognized)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.description)
@@ -32,13 +32,13 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.nominator.firstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nominee.firstName)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.award)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.recognizor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.recognized)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.description)

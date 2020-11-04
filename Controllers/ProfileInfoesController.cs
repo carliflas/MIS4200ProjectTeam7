@@ -23,6 +23,7 @@ namespace MIS4200ProjectTeam7.Controllers
         }
 
         // GET: ProfileInfoes/Details/5
+        [Authorize]
         public ActionResult ProfDetails()
         {
             Guid id;
@@ -49,6 +50,7 @@ namespace MIS4200ProjectTeam7.Controllers
             return View(profileInfo);
         }
 
+
         // GET: ProfileInfoes/Create
         public ActionResult Create()
         {
@@ -74,6 +76,8 @@ namespace MIS4200ProjectTeam7.Controllers
         }
 
         // GET: ProfileInfoes/Edit/5
+
+        [Authorize]
         public ActionResult Edit(Guid? id)
         {
             if (id == null)
