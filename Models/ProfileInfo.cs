@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -21,6 +22,14 @@ namespace MIS4200ProjectTeam7.Models
         [Display(Name = "Last Name")]
 
         public string lastName { get; set; }
+
+
+        [Display(Name = "Full Name")]
+        public string fullName
+        {
+            get
+            { return firstName + ", " + lastName; }
+        }
 
 
         [Display(Name = "Business Unit")]
@@ -50,9 +59,13 @@ namespace MIS4200ProjectTeam7.Models
         [EmailAddress]
         public string WorkEmail { get; set; }
 
+        [ForeignKey("workerId")]
+        public ICollection<position> worker { get; set; }
 
-        public ICollection<CoreValues> coreValues { get; set; }
+        [ForeignKey("bossId")]
+        public ICollection<position> boss { get; set; }
     }
 
-       
-    }
+
+}
+
