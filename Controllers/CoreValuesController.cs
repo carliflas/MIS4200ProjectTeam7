@@ -40,8 +40,8 @@ namespace MIS4200ProjectTeam7.Controllers
         // GET: CoreValues/Create
         public ActionResult Create()
         {
-            ViewBag.recognizor = new SelectList(db.ProfileInfos, "ProfileId", "firstName");
-            ViewBag.recognized = new SelectList(db.ProfileInfos, "ProfileId", "firstName");
+            ViewBag.recognizor = new SelectList(db.ProfileInfos, "ProfileId", "fullName");
+            ViewBag.recognized = new SelectList(db.ProfileInfos, "ProfileId", "fullName");
             return View();
         }
 
@@ -76,8 +76,8 @@ namespace MIS4200ProjectTeam7.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.recognizor = new SelectList(db.ProfileInfos, "ProfileId", "firstName", coreValues.recognizor);
-            ViewBag.recognized = new SelectList(db.ProfileInfos, "ProfileId", "firstName", coreValues.recognized);
+            ViewBag.recognizor = new SelectList(db.ProfileInfos, "ProfileId", "fullName",  coreValues.recognizor);
+            ViewBag.recognized = new SelectList(db.ProfileInfos, "ProfileId", "fullName", coreValues.recognized);
             return View(coreValues);
         }
 
@@ -94,8 +94,8 @@ namespace MIS4200ProjectTeam7.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.recognizor = new SelectList(db.ProfileInfos, "ProfileId", "firstName", coreValues.recognizor);
-            ViewBag.recognized = new SelectList(db.ProfileInfos, "ProfileId", "firstName", coreValues.recognized);
+            ViewBag.recognizor = new SelectList(db.ProfileInfos, "ProfileId", "fullName", coreValues.recognizor);
+            ViewBag.recognized = new SelectList(db.ProfileInfos, "ProfileId", "fullName", coreValues.recognized);
             return View(coreValues);
         }
 
