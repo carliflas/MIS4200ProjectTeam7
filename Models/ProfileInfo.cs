@@ -28,7 +28,7 @@ namespace MIS4200ProjectTeam7.Models
         public string fullName
         {
             get
-            { return firstName + ", " + lastName; }
+            { return firstName + " " + lastName; }
         }
 
 
