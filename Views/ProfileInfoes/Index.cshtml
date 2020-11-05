@@ -6,6 +6,22 @@
 
 <h2>Index</h2>
 
+<div class="form-horizontal">
+    <div class="form-group">
+        <div class="col-md-9">
+            @using (Html.BeginForm("Index", "ProfileInfoes", FormMethod.Get))
+            {
+                <p>
+                    Search for users by first or last name:
+                    @Html.TextBox("searchString")
+                    <input type="submit" value="Search" />
+                </p>
+            }
+        </div>
+        
+    </div>
+</div>
+
 
 <table class="table">
     <tr>
@@ -21,31 +37,32 @@
         <th>
             @Html.DisplayNameFor(model => model.empTitle)
         </th>
-        
+
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.firstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.lastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.bizUnit)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.empTitle)
-        </td>
-        
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProfileId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProfileId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProfileId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.firstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bizUnit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.empTitle)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProfileId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProfileId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProfileId })
+            </td>
+        </tr>
+    }
 
 </table>

@@ -6,7 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
+using Microsoft.Owin.Security.Provider;
 using MIS4200ProjectTeam7.DAL;
 using MIS4200ProjectTeam7.Models;
 
@@ -17,10 +19,17 @@ namespace MIS4200ProjectTeam7.Controllers
         private MIS4200Team7Context db = new MIS4200Team7Context();
 
         // GET: ProfileInfoes
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
+            var testprofileinfoes = from u in db.ProfileInfos select u;
+            if (!string.IsNullOrEmpty(searchString))
+                testprofileinfoes = testprofileinfoes.Where(u => u.lastName.Contains(searchString) || u.firstName.Contains(searchString));
+
+            return View(testprofileinfoes.ToList());
             return View(db.ProfileInfos.ToList());
         }
+
+        
 
         // GET: ProfileInfoes/Details/5
         [Authorize]
