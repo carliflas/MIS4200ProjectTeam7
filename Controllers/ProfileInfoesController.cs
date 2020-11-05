@@ -24,11 +24,12 @@ namespace MIS4200ProjectTeam7.Controllers
 
         // GET: ProfileInfoes/Details/5
         [Authorize]
-        public ActionResult Details()
+        public ActionResult Details(Guid? id)
         {
-            Guid id;
-            Guid.TryParse(User.Identity.GetUserId(), out id);
-
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             ProfileInfo profileInfo = db.ProfileInfos.Find(id);
             if (profileInfo == null)
             {
@@ -36,7 +37,6 @@ namespace MIS4200ProjectTeam7.Controllers
             }
             return View(profileInfo);
         }
-
         public ActionResult ProfDetails()
         {
             Guid id;
