@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using MIS4200ProjectTeam7.DAL;
 using MIS4200ProjectTeam7.Models;
 
@@ -44,8 +45,12 @@ namespace MIS4200ProjectTeam7.Controllers
         // GET: CoreValues/Create
         public ActionResult Create()
         {
+            string ProfileId = User.Identity.GetUserId();
+           SelectList employees = new SelectList(db.ProfileInfos, "ProfileId", "fullName");
+            employees = new SelectList(employees.Where(x => x.Value != ProfileId).ToList(), "Value", "Text");
+            ViewBag.recognized = employees;
+            ViewBag.recognizor = employees;
             ViewBag.recognizor = new SelectList(db.ProfileInfos, "ProfileId", "fullName");
-            ViewBag.recognized = new SelectList(db.ProfileInfos, "ProfileId", "fullName");
             return View();
         }
 

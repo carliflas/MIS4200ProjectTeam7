@@ -268,6 +268,7 @@
     <Content Include="Views\ProfileInfoes\Details.cshtml" />
     <Content Include="Views\ProfileInfoes\Edit.cshtml" />
     <Content Include="Views\ProfileInfoes\Index.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

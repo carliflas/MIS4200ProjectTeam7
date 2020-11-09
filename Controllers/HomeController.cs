@@ -20,6 +20,12 @@ namespace MIS4200ProjectTeam7.Controllers
             return View();
         }
 
+        public ActionResult Contact()
+        {
+
+
+            return View();
+        }
         public ActionResult Profile()
         {
          

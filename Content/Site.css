@@ -11,6 +11,7 @@
     background-color: mintcream
 }
 
+
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
@@ -18,6 +19,8 @@
     white-space: normal;
     background-color: mintcream
 }
+
+
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,
@@ -29,3 +32,7 @@ textarea {
 .jumbotron h1{color:white}
 .jumbotron p {color:white}
 .body-content h5 {color:white}
+
+
+
+

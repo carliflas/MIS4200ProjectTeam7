@@ -6,22 +6,6 @@
 
 <h2>Index</h2>
 
-<div class="form-horizontal">
-    <div class="form-group">
-        <div class="col-md-9">
-            @using (Html.BeginForm("Index", "CoreValues", FormMethod.Get))
-            {
-                <p>
-                    Search for recognitions by award or nominee:
-                    @Html.TextBox("searchString")
-                    <input type="submit" value="Search" />
-                </p>
-            }
-        </div>
-
-    </div>
-</div>
-
 
 <p>
     @Html.ActionLink("Create New", "Create")
