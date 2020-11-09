@@ -16,6 +16,8 @@ namespace MIS4200ProjectTeam7.Controllers
         private MIS4200Team7Context db = new MIS4200Team7Context();
 
         // GET: CoreValues
+
+        [Authorize]
         public ActionResult Index()
         {
             var coreValues = db.CoreValues.Include(c => c.nominator).Include(c => c.nominee);
@@ -23,6 +25,8 @@ namespace MIS4200ProjectTeam7.Controllers
         }
 
         // GET: CoreValues/Details/5
+
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
