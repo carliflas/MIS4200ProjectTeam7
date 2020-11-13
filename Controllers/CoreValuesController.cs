@@ -41,6 +41,33 @@ namespace MIS4200ProjectTeam7.Controllers
             }
             return View(coreValues);
         }
+        public ActionResult Recognition(int? id)
+        {
+            var rec = db.CoreValues.Where(r => r.ID == id);
+            var recList = rec.ToList();
+
+
+            var totalCnt = recList.Count(); //counts all the recognitions for that person
+            var rec01Cnt = recList.Count(r => r.award == CoreValues.CoreValue.Excellence);
+            var rec2Cnt = recList.Count(r => r.award == CoreValues.CoreValue.Culture);
+            var rec3Cnt = recList.Count(r => r.award == CoreValues.CoreValue.Integrity);
+            var rec4Cnt = recList.Count(r => r.award == CoreValues.CoreValue.Stewardship);
+            var rec5Cnt = recList.Count(r => r.award == CoreValues.CoreValue.Balance);
+            var rec6Cnt = recList.Count(r => r.award == CoreValues.CoreValue.Innovate);
+            var rec7Cnt = recList.Count(r => r.award == CoreValues.CoreValue.Passion);
+            // copy the values into the ViewBag
+            ViewBag.Total = totalCnt;
+            ViewBag.Excellence = rec01Cnt;
+            ViewBag.Culture = rec2Cnt;
+            ViewBag.Integrity = rec3Cnt;
+            ViewBag.Stewardship = rec4Cnt;
+            ViewBag.Balance = rec5Cnt;
+            ViewBag.Innovate = rec6Cnt;
+            ViewBag.Passion = rec7Cnt;
+
+            return View();
+        }
+
 
         // GET: CoreValues/Create
         public ActionResult Create()
