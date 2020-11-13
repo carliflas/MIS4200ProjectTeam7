@@ -270,6 +270,7 @@
     <Content Include="Views\ProfileInfoes\Index.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\CoreValues\Recognition.cshtml" />
+    <Content Include="Views\CoreValues\Email.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
