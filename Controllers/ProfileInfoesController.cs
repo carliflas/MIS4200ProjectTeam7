@@ -88,7 +88,9 @@ namespace MIS4200ProjectTeam7.Controllers
         {
             if (ModelState.IsValid)
             {
-                profileInfo.ProfileId = Guid.NewGuid();
+                Guid id;
+                Guid.TryParse(User.Identity.GetUserId(), out id);
+                profileInfo.ProfileId = id;
                 db.ProfileInfos.Add(profileInfo);
                 db.SaveChanges();
                 return RedirectToAction("Index");
