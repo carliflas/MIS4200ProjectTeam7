@@ -43,9 +43,11 @@ namespace MIS4200ProjectTeam7.Controllers
             }
             return View(coreValues);
         }
-        public ActionResult Recognition(int? id)
+        public ActionResult Recognition()
         {
-            var rec = db.CoreValues.Where(r => r.ID == id);
+            Guid id;
+            Guid.TryParse(User.Identity.GetUserId(), out id);
+            var rec = db.CoreValues.Where(r => r.recognized == id);
             var recList = rec.ToList();
 
 
