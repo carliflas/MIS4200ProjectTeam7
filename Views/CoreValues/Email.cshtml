@@ -1,18 +1,20 @@
 ﻿@{
     ViewBag.Title = "Email";
 }
-<h2>Email test results</h2>
+
+<a href="https://localhost:44302/Home/Index" class="btn btn-primary btn-default">Click to return home &raquo;</a>
+<h2>Email Status</h2>
 @{
     if (TempData["mailError"] != null && TempData["mailError"] != "")
     {
         <h3>
-            The following error occurred while trying to send the email message:
+            The following error occurred while trying to send the email message: 100456 .
             @TempData["mailError"].ToString()
         </h3>
 
     }
     else
     {
-        <h3>Email sent</h3>
+        <h3>Email sent successfully!</h3>
     }
 }

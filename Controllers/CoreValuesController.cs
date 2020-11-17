@@ -114,7 +114,7 @@ namespace MIS4200ProjectTeam7.Controllers
 
                     MailMessage myMessage = new MailMessage();
                     // the syntax here is email address, username (that will appear in the email)
-                    MailAddress from = new MailAddress("ac111316@gmail.com", "SysAdmin");
+                    MailAddress from = new MailAddress("ac111316@ohio.edu", "SysAdminMIS4200Team7");
                     myMessage.From = from;
                     myMessage.To.Add(email); // this should be replaced with model data
                                              // as shown at the end of this document
@@ -128,7 +128,7 @@ namespace MIS4200ProjectTeam7.Controllers
                     smtp.Host = "smtp.gmail.com";
                     smtp.Port = 587;
                     smtp.UseDefaultCredentials = false;
-                    smtp.Credentials = new System.Net.NetworkCredential("GmailUserAcnt", "Password");
+                    smtp.Credentials = new System.Net.NetworkCredential("MIS4200Team7@gmail.com", "T3st123!");
                     smtp.EnableSsl = true;
                     smtp.Send(myMessage);
                     TempData["mailError"] = "";
