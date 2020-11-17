@@ -96,13 +96,24 @@ namespace MIS4200ProjectTeam7.Controllers
             {
                 db.CoreValues.Add(coreValues);
                 db.SaveChanges();
+
+                // first, the customer found in the order is used to locate the customer record
+                var employee = db.ProfileInfos.Find(coreValues.recognized);
+                // then extract the email address from the customer record
+                var EmployeeEmail = employee.WorkEmail;
+                // finally, add the email address to the “To” list
+
                 return RedirectToAction("Index");
             }
 
             ViewBag.recognizor = new SelectList(db.ProfileInfos, "ProfileId", "firstName", coreValues.recognizor);
             ViewBag.recognized = new SelectList(db.ProfileInfos, "ProfileId", "firstName", coreValues.recognized);
+           
+
+           
             return View(coreValues);
         }
+
 
         // GET: CoreValues/Edit/5
         public ActionResult Edit(int? id)
@@ -156,26 +167,37 @@ namespace MIS4200ProjectTeam7.Controllers
 
         public ActionResult Email(int? id)
         {
-            SmtpClient myClient = new SmtpClient();
-            // the following line has to contain the email address and password of someone
-            // authorized to use the email server (you will need a valid Ohio account/password
-            // for this to work)
-            myClient.Credentials = new NetworkCredential("AuthorizedUser", "UserPassword");
+
+            var firstName = db.ProfileInfos.firstName;
+            var lastName = db.ProfileInfos.lastName;
+            var email = db.ProfileInfos.WorkEmail;
+            var cv = db.CoreValues.award;
+            var msg = "Hi " + firstName + " " + lastName = ",/n/n We wanted to congratulate you on being recognized for displaying " + cv;
+            msg += "Our firm values you as an employee and could not be more proud that you are becoming an asset to our firm";
+            msg += "/n/n Please check your profile to see the recognition displyed";
+            msg += "/n/n Keep up the great work!/nCentric-Recognition Team";
+                 
             MailMessage myMessage = new MailMessage();
             // the syntax here is email address, username (that will appear in the email)
-            MailAddress from = new MailAddress("luce@ohio.edu", "SysAdmin");
+            MailAddress from = new MailAddress("ac111316@gmail.com", "SysAdmin");
             myMessage.From = from;
-            myMessage.To.Add("thomluce@gmail.com"); // this should be replaced with model data
+            myMessage.To.Add(email); // this should be replaced with model data
                                                     // as shown at the end of this document
-            myMessage.Subject = "MVC Email test";
-            // the body of the email is hard coded here but could be dynamically created using data
-            // from the model- see the note at the end of this document
-            myMessage.Body = "This is the body of the mail message. This can be essentially";
-myMessage.Body += "from the database, a variable, the return of another method...";
+            myMessage.Subject = "You Have Been Recognized!";
+
+            myMessage.Body = msg;
+
             try
             {
-                myClient.Send(myMessage);
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.Port = 587;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new System.Net.NetworkCredential("GmailUserAcnt", "Password");
+                smtp.EnableSsl = true;
+                smtp.Send(myMessage);
                 TempData["mailError"] = "";
+
             }
             catch (Exception ex)
             {
