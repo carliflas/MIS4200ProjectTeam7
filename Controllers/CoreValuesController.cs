@@ -102,9 +102,47 @@ namespace MIS4200ProjectTeam7.Controllers
                 // then extract the email address from the customer record
                 var EmployeeEmail = employee.WorkEmail;
                 // finally, add the email address to the “To” list
+                
+                    
+                    var fullName = employee.fullName;
+                    var email = employee.WorkEmail;
+                    var cv = coreValues.award;
+                    var msg = "Hi " + fullName + ",We wanted to congratulate you on being recognized for displaying the core vale of " + cv;
+                    msg += ". Our firm values you as an employee and could not be more proud that you are becoming an asset to our firm";
+                    msg += "/n/n Please check your profile to see the recognition displyed";
+                    msg += "/n/n Keep up the great work!/nCentric-Recognition Team";
 
-                return RedirectToAction("Index");
-            }
+                    MailMessage myMessage = new MailMessage();
+                    // the syntax here is email address, username (that will appear in the email)
+                    MailAddress from = new MailAddress("ac111316@gmail.com", "SysAdmin");
+                    myMessage.From = from;
+                    myMessage.To.Add(email); // this should be replaced with model data
+                                             // as shown at the end of this document
+                    myMessage.Subject = "You Have Been Recognized!";
+
+                    myMessage.Body = msg;
+
+                try
+                {
+                    SmtpClient smtp = new SmtpClient();
+                    smtp.Host = "smtp.gmail.com";
+                    smtp.Port = 587;
+                    smtp.UseDefaultCredentials = false;
+                    smtp.Credentials = new System.Net.NetworkCredential("GmailUserAcnt", "Password");
+                    smtp.EnableSsl = true;
+                    smtp.Send(myMessage);
+                    TempData["mailError"] = "";
+
+                }
+                catch (Exception ex)
+                {
+                    // this captures an Exception and allows you to display the message in the View
+                    TempData["mailError"] = ex.Message;
+                }
+                return View("Email");
+
+
+                            }
 
             ViewBag.recognizor = new SelectList(db.ProfileInfos, "ProfileId", "firstName", coreValues.recognizor);
             ViewBag.recognized = new SelectList(db.ProfileInfos, "ProfileId", "firstName", coreValues.recognized);
@@ -165,47 +203,6 @@ namespace MIS4200ProjectTeam7.Controllers
             return View(coreValues);
         }
 
-        public ActionResult Email(int? id)
-        {
-
-            var firstName = db.ProfileInfos.firstName;
-            var lastName = db.ProfileInfos.lastName;
-            var email = db.ProfileInfos.WorkEmail;
-            var cv = db.CoreValues.award;
-            var msg = "Hi " + firstName + " " + lastName = ",/n/n We wanted to congratulate you on being recognized for displaying " + cv;
-            msg += "Our firm values you as an employee and could not be more proud that you are becoming an asset to our firm";
-            msg += "/n/n Please check your profile to see the recognition displyed";
-            msg += "/n/n Keep up the great work!/nCentric-Recognition Team";
-                 
-            MailMessage myMessage = new MailMessage();
-            // the syntax here is email address, username (that will appear in the email)
-            MailAddress from = new MailAddress("ac111316@gmail.com", "SysAdmin");
-            myMessage.From = from;
-            myMessage.To.Add(email); // this should be replaced with model data
-                                                    // as shown at the end of this document
-            myMessage.Subject = "You Have Been Recognized!";
-
-            myMessage.Body = msg;
-
-            try
-            {
-                SmtpClient smtp = new SmtpClient();
-                smtp.Host = "smtp.gmail.com";
-                smtp.Port = 587;
-                smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new System.Net.NetworkCredential("GmailUserAcnt", "Password");
-                smtp.EnableSsl = true;
-                smtp.Send(myMessage);
-                TempData["mailError"] = "";
-
-            }
-            catch (Exception ex)
-            {
-                // this captures an Exception and allows you to display the message in the View
-                TempData["mailError"] = ex.Message;
-            }
-            return View();
-        }
         // POST: CoreValues/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
