@@ -19,6 +19,7 @@ namespace MIS4200ProjectTeam7.Controllers
         private MIS4200Team7Context db = new MIS4200Team7Context();
 
         // GET: ProfileInfoes
+        [Authorize]
         public ActionResult Index(string searchString)
         {
             var testprofileinfoes = from u in db.ProfileInfos select u;
