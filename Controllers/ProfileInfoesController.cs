@@ -27,7 +27,7 @@ namespace MIS4200ProjectTeam7.Controllers
                 testprofileinfoes = testprofileinfoes.Where(u => u.lastName.Contains(searchString) || u.firstName.Contains(searchString));
 
             return View(testprofileinfoes.ToList());
-            return View(db.ProfileInfos.ToList());
+           // return View(db.ProfileInfos.ToList());
         }
 
         
@@ -103,12 +103,10 @@ namespace MIS4200ProjectTeam7.Controllers
         // GET: ProfileInfoes/Edit/5
 
         [Authorize]
-        public ActionResult Edit(Guid? id)
+        public ActionResult Edit()
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            Guid id;
+            Guid.TryParse(User.Identity.GetUserId(), out id);
             ProfileInfo profileInfo = db.ProfileInfos.Find(id);
             if (profileInfo == null)
             {

@@ -1,13 +1,17 @@
 ﻿@model MIS4200ProjectTeam7.Models.ProfileInfo
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Profile Page";
 }
 
-<h2>Details</h2>
+<div class="jumbotron" style="background-color: darkslateblue">
+    <h1>Employee Profile</h1>
+    
+    <a href="https://localhost:44302/CoreValues/Recognition" class="btn btn-primary btn-default">Personal Recognitions &raquo;</a>
+</div>
 
 <div>
-    <h4>ProfileInfo</h4>
+
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -76,7 +80,11 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ProfileId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+
+
+<div class="col-sm-8 text-left">
+    <h1>Total Recognitions</h1>
+    <p>Type activity information into this line</p>
+    </div>
+

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using MIS4200ProjectTeam7.DAL;
 using MIS4200ProjectTeam7.Models;
 
@@ -24,12 +25,10 @@ namespace MIS4200ProjectTeam7.Controllers
 
         // GET: MyProfile/Details/5
         [Authorize]
-        public ActionResult Details(Guid? id)
+        public ActionResult Details()
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            Guid id;
+            Guid.TryParse(User.Identity.GetUserId(), out id);
             ProfileInfo profileInfo = db.ProfileInfos.Find(id);
             if (profileInfo == null)
             {

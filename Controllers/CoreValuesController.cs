@@ -9,7 +9,6 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using MIS4200ProjectTeam7.DAL;
 using MIS4200ProjectTeam7.Models;
-using System.Net;
 using System.Net.Mail;
 
 namespace MIS4200ProjectTeam7.Controllers
