@@ -23,6 +23,7 @@ namespace MIS4200ProjectTeam7.Controllers
         }
 
         // GET: MyProfile/Details/5
+        [Authorize]
         public ActionResult Details(Guid? id)
         {
             if (id == null)

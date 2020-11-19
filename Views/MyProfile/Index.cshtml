@@ -1,18 +1,10 @@
 ﻿@model IEnumerable<MIS4200ProjectTeam7.Models.ProfileInfo>
 
 @{
-    ViewBag.Title = "Profile Page";
+    ViewBag.Title = "Index";
 }
 
-<div class="jumbotron" style="background-color: darkslateblue">
-    <h1>Your Profile</h1>
-    <a href="https://localhost:44302/profileinfoes/employeecontact" class="btn btn-primary btn-default">Personal Contact Info &raquo;</a>
-    <a href="https://localhost:44302/CoreValues/Recognition" class="btn btn-primary btn-default">Personal Recognitions &raquo;</a>
-</div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -77,31 +69,4 @@
         </tr>
     }
 
-</table>
-<div class="container-fluid text-center">
-    <div class="row content">
-        <div class="col-sm-2 sidenav">
-            <p><a href="https://localhost:44302/mis4200team7/">Landing Page</a></p>
-
-        </div>
-        <div class="col-sm-8 text-left">
-            <h1>Recent Activity</h1>
-            <p>Type activity information into this line</p>
-
-        </div>
-        <div class="col-sm-2 sidenav">
-            <textarea class="form-control" id="comments" name="comments" placeholder="Write a Post..." rows="5"></textarea>
-            <br>
-            <div class="row">
-                <div class="col-sm-12 form-group">
-                    <button class="btn btn-default pull-left" type="submit">Post</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-<p>
-    <a href="https://localhost:44302/profileinfoes/profdetails" class="btn btn-primary btn-default">Update Your Profile &raquo;</a>
-    <a href=" https://localhost:44302/mis4200team7/Manage" class="btn btn-primary btn-default">Account Settings &raquo;</a>
 
