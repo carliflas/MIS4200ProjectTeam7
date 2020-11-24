@@ -42,12 +42,21 @@ namespace MIS4200ProjectTeam7.Controllers
             }
             return View(coreValues);
         }
-        public ActionResult Recognition()
+        public ActionResult Recognition(Guid? id)
         {
-            Guid id;
-            Guid.TryParse(User.Identity.GetUserId(), out id);
-            var rec = db.CoreValues.Where(r => r.recognized == id);
-            var recList = rec.ToList();
+
+            Guid recid;
+            if (id == null)
+            {
+                Guid.TryParse(User.Identity.GetUserId(), out recid);
+            }
+            else
+            {
+                recid = (Guid)id;
+            }
+                var rec = db.CoreValues.Where(r => r.recognized == recid);
+                var recList = rec.ToList();
+            
 
 
             var totalCnt = recList.Count(); //counts all the recognitions for that person
@@ -93,7 +102,11 @@ namespace MIS4200ProjectTeam7.Controllers
         {
             if (ModelState.IsValid)
             {
+                Guid id;
+                Guid.TryParse(User.Identity.GetUserId(), out id);
+                coreValues.recognizor = id;
                 db.CoreValues.Add(coreValues);
+
                 db.SaveChanges();
 
                 // first, the customer found in the order is used to locate the customer record
