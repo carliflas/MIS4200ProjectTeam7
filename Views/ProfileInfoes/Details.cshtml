@@ -6,11 +6,12 @@
 
 <div class="jumbotron" style="background-color: darkslateblue">
     <h1>Employee Profile</h1>
-    
-    @Html.ActionLink("Personal Recognitions", "Recognition", "coreValues", new { id = Model.ProfileId },null)
 
     @*<a href="https://localhost:44302/CoreValues/Recognition" class="btn btn-primary btn-default">Personal Recognitions &raquo;</a>*@
 </div>
+
+@Html.ActionLink("Personal Recognitions", "Recognition", "coreValues", new { id = Model.ProfileId }, null)
+
 
 <div>
 

@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>All Profiles</h2>
 
 <div class="form-horizontal">
     <div class="form-group">
@@ -60,9 +60,7 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.ProfileId }) |
                 @Html.ActionLink("Details", "Details", new { id = item.ProfileId }) 
-                
-            </td>
-        </tr>
+                </td>        </tr>
     }
 
 </table>
