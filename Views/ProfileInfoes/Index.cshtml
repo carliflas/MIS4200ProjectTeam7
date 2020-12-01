@@ -18,7 +18,7 @@
                 </p>
             }
         </div>
-        
+
     </div>
 </div>
 
@@ -59,8 +59,52 @@
 
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.ProfileId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ProfileId }) 
-                </td>        </tr>
-    }
+                @Html.ActionLink("Details", "Details", new { id = item.ProfileId })
+            </td>
+        </tr>
 
-</table>
+
+
+
+
+        <tr>
+            <td width="100px"> &nbsp;</td>
+            <td colspan="8">
+
+                @{ var nomination = item.nominator.OrderByDescending(n => n.recognizationDate);
+                    var totalNominations = item.nominator.Count();
+                    var test = nomination.ToList();
+                    <table width="100%"> </table>
+            <tr>
+                <th> Award </th>
+                <th width="50%"> Description </th>
+                <th> Date </th>
+                <th> Total Nominations = @totalNominations </th>
+            </tr>
+           
+            <td colspan="4">
+                <hr />
+
+                
+            </td>
+           
+
+            foreach (var cv in test)
+            {
+                <tr>
+                    <td>@cv.award</td>
+                    <td>@cv.description</td>
+
+                    @{ 
+                        var recDate = (DateTime)cv.recognizationDate;
+                    }
+                    <td>@recDate.ToString("d")
+                </tr>
+
+                   }
+        
+
+                        }
+                </td>
+                </tr>
+                        }

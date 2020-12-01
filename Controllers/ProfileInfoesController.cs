@@ -20,17 +20,24 @@ namespace MIS4200ProjectTeam7.Controllers
 
         // GET: ProfileInfoes
         [Authorize]
-        public ActionResult Index(string searchString)
+        public ActionResult Index()
+            //public ActionResult Index(string searchString)
         {
-            var testprofileinfoes = from u in db.ProfileInfos select u;
-            if (!string.IsNullOrEmpty(searchString))
-                testprofileinfoes = testprofileinfoes.Where(u => u.lastName.Contains(searchString) || u.firstName.Contains(searchString));
+            
+        //    var testprofileinfoes = from u in db.ProfileInfos select u;
+        //    if (!string.IsNullOrEmpty(searchString))
+        //        testprofileinfoes = testprofileinfoes.Where(u => u.lastName.Contains(searchString) || u.firstName.Contains(searchString));
 
-            return View(testprofileinfoes.ToList());
-           // return View(db.ProfileInfos.ToList());
+
+        //    return View(db.ProfileInfos.ToList());
+
+            var profileinfo = db.ProfileInfos.Include(p => p.nominator).OrderBy(p => p.firstName);
+            profileinfo = profileinfo.OrderByDescending(p => p.nominator.Count());
+            var profileList = profileinfo.ToList();
+                 return View(profileList);
         }
 
-        
+               
 
         // GET: ProfileInfoes/Details/5
         [Authorize]
