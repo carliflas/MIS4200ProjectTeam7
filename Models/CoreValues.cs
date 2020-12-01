@@ -27,7 +27,7 @@ namespace MIS4200ProjectTeam7.Models
        
        
         [Display(Name = "Date of recognition")]
-        public DateTime recognizationDate { get; set; }
+        public DateTime? recognizationDate { get; set; }
 
        [ForeignKey("recognized")]
         public virtual ProfileInfo nominee { get; set; }

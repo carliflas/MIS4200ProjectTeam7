@@ -276,6 +276,7 @@
     <Content Include="Views\MyProfile\Details.cshtml" />
     <Content Include="Views\MyProfile\Edit.cshtml" />
     <Content Include="Views\MyProfile\Index.cshtml" />
+    <Content Include="Views\CoreValues\LeaderB.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

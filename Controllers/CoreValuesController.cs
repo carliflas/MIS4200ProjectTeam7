@@ -81,8 +81,25 @@ namespace MIS4200ProjectTeam7.Controllers
         }
 
 
-        // GET: CoreValues/Create
-        public ActionResult Create()
+        public ActionResult LeaderB(Guid? id)
+        {
+
+            Guid recid;
+            if (id == null)
+            {
+                Guid.TryParse(User.Identity.GetUserId(), out recid);
+            }
+            else
+            {
+                recid = (Guid)id;
+            }
+            var rec = db.CoreValues.Where(r => r.recognized == recid);
+            var recList = rec.ToList();
+
+            return View();
+        }
+            // GET: CoreValues/Create
+            public ActionResult Create()
         {
             string ProfileId = User.Identity.GetUserId();
            SelectList employees = new SelectList(db.ProfileInfos, "ProfileId", "fullName");
@@ -105,6 +122,7 @@ namespace MIS4200ProjectTeam7.Controllers
                 Guid id;
                 Guid.TryParse(User.Identity.GetUserId(), out id);
                 coreValues.recognizor = id;
+                coreValues.recognizationDate = DateTime.Now;
                 db.CoreValues.Add(coreValues);
 
                 db.SaveChanges();
