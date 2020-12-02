@@ -153,10 +153,10 @@ namespace MIS4200ProjectTeam7.Controllers
                     var fullName = employee.fullName;
                     var email = employee.WorkEmail;
                     var cv = coreValues.award;
-                    var msg = "Hi " + fullName + ". We wanted to congratulate you on being recognized for displaying the core vale of " + cv;
-                    msg += ". Our firm values you as an employee, and could not be more proud that you are becoming an asset to our firm! ";
+                    var msg = "Hi " + fullName + ",\n\nWe wanted to congratulate you on being recognized for displaying the core value of " + cv;
+                    msg += ". Our firm values you as an employee. We could not be more proud that you are becoming an asset to our firm! ";
                     msg += "Please check your profile to see the recognition displyed. ";
-                    msg += "Keep up the great work! -Centric Recognition Team";
+                    msg += "\n\nKeep up the great work!\n\n -Centric Recognition Team";
 
                     MailMessage myMessage = new MailMessage();
                     // the syntax here is email address, username (that will appear in the email)

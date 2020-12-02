@@ -4,26 +4,11 @@
     ViewBag.Title = "Index";
 }
 
-<h2>All Profiles</h2>
-
-<div class="form-horizontal">
-    <div class="form-group">
-        <div class="col-md-9">
-            @using (Html.BeginForm("Index", "ProfileInfoes", FormMethod.Get))
-            {
-                <p>
-                    Search for users by first or last name:
-                    @Html.TextBox("searchString")
-                    <input type="submit" value="Search" />
-                </p>
-            }
-        </div>
-
-    </div>
-</div>
+<h2>All Profiles Leaderboard</h2>
 
 
-<table class="table table-striped table-bordered table-hover">
+
+<table class="table table-bordered table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.firstName)
@@ -58,7 +43,6 @@
             </td>
 
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ProfileId }) |
                 @Html.ActionLink("Details", "Details", new { id = item.ProfileId })
             </td>
         </tr>
@@ -75,37 +59,39 @@
                     var nomination = item.nominator.OrderByDescending(n => n.recognizationDate);
                     var totalNominations = item.nominator.Count();
                     var test = nomination.ToList();
-                    <table width="100%"> 
-            <tr>
-                <th> Award </th>
-                <th width="50%"> Description </th>
-                <th> Date</th>
-                <th> Total Nominations = @totalNominations </th>
-            </tr>
-           <tr>
+                    <table width="100%">
+                        <tr>
+                            <th> Award </th>
+                            <th width="50%"> Description </th>
+                            <th> Date</th>
+                            <th> Total Nominations = @totalNominations </th>
+                        </tr>
+                        <tr>
 
-            <td colspan="4">
-                <hr/>
-                               
+                            <td colspan="4">
+                                <hr />
+
+                            </td>
+                        </tr>
+
+                        @foreach (var cv in test)
+                        {
+                            <tr>
+                                <td>@cv.award</td>
+                                <td>@cv.description</td>
+
+                                @{
+                                    var recDate = (DateTime)cv.recognizationDate;
+                                }
+                                <td>@recDate.ToString("d")
+                            </tr>
+
+                        }
+                    </table>
+
+                }
             </td>
-           </tr>
+        </tr>
 
-            @foreach (var cv in test)
-            {
-                <tr>
-                    <td>@cv.award</td>
-                    <td>@cv.description</td>
-
-                    @{ 
-                        var recDate = (DateTime)cv.recognizationDate;
-                    }
-                    <td>@recDate.ToString("d")
-                </tr>
-
-                   }
-        </table>
-
-                        }
-                </td>
-                </tr>
-                        }
+    }
+</table>
