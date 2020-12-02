@@ -20,15 +20,31 @@ namespace MIS4200ProjectTeam7.Controllers
         // GET: CoreValues
 
         [Authorize]
+
         public ActionResult Index()
         {
             var coreValues = db.CoreValues.Include(c => c.nominator).Include(c => c.nominee);
-            return View(coreValues.ToList());
-        }
+              return View(coreValues.ToList());}
 
-        // GET: CoreValues/Details/5
+            //public ActionResult Index(string searchString)
 
-        [Authorize]
+            //{
+            //    var testcv = from u in db.CoreValues select u;
+            //    if (!String.IsNullOrEmpty(searchString))
+            //    {
+            //        testcv = testcv.Where(u =>
+            //        u.recognized.Contains(searchString)
+            //        || u.award.Contains(searchString));
+
+            //    }
+
+            //    var coreValues = db.CoreValues.Include(c => c.nominator).Include(c => c.nominee);
+            //    return View(coreValues.ToList());
+            //}
+
+            // GET: CoreValues/Details/5
+
+            [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)

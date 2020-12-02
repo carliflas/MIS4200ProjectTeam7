@@ -71,25 +71,26 @@
             <td width="100px"> &nbsp;</td>
             <td colspan="8">
 
-                @{ var nomination = item.nominator.OrderByDescending(n => n.recognizationDate);
+                @{
+                    var nomination = item.nominator.OrderByDescending(n => n.recognizationDate);
                     var totalNominations = item.nominator.Count();
                     var test = nomination.ToList();
-                    <table width="100%"> </table>
+                    <table width="100%"> 
             <tr>
                 <th> Award </th>
                 <th width="50%"> Description </th>
-                <th> Date </th>
+                <th> Date</th>
                 <th> Total Nominations = @totalNominations </th>
             </tr>
-           
+           <tr>
+
             <td colspan="4">
-                <hr />
-
-                
+                <hr/>
+                               
             </td>
-           
+           </tr>
 
-            foreach (var cv in test)
+            @foreach (var cv in test)
             {
                 <tr>
                     <td>@cv.award</td>
@@ -102,7 +103,7 @@
                 </tr>
 
                    }
-        
+        </table>
 
                         }
                 </td>
