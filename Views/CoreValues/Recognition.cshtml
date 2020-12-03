@@ -5,24 +5,26 @@
 
 <div class="jumbotron" style="background-color: darkslateblue">
     <h1>Your Recognitions</h1>
-    </div>
-    @{
-        var Total = ViewBag.Total;
-        var Excellence = ViewBag.Excellence;
-        var Culture = ViewBag.Culture;
-        var Stewardship = ViewBag.Stewardship;
-        var Integrity = ViewBag.Integrity;
-        var Passion = ViewBag.Passion;
-        var Balance = ViewBag.Balance;
-        var Innovate = ViewBag.Innovate;
-        <h2>All the Recognitions You Were Nominated for: @Total</h2>
-        <br />
+</div>
+@{
+    var Total = ViewBag.Total;
+    var Excellence = ViewBag.Excellence;
+    var Culture = ViewBag.Culture;
+    var Stewardship = ViewBag.Stewardship;
+    var Integrity = ViewBag.Integrity;
+    var Passion = ViewBag.Passion;
+    var Balance = ViewBag.Balance;
+    var Innovate = ViewBag.Innovate;
+    <h2>All the Recognitions You Were Nominated for: @Total</h2>
+    <br />
 
-        <h4>Excellence Awards: @Excellence</h4>
-        <h4>Culture Awards: @Culture</h4>
-        <h4>Stewardship Awards: @Stewardship</h4>
-        <h4>Integrity Awards: @Integrity</h4>
-        <h4>Passion Awards: @Passion</h4>
-        <h4>Balance Awards: @Balance</h4>
-        <h4>Innovate Awards: @Innovate</h4>
-    }
+    <h4>Excellence Awards: @Excellence</h4>
+    <h4>Culture Awards: @Culture</h4>
+    <h4>Stewardship Awards: @Stewardship</h4>
+    <h4>Integrity Awards: @Integrity</h4>
+    <h4>Passion Awards: @Passion</h4>
+    <h4>Balance Awards: @Balance</h4>
+    <h4>Innovate Awards: @Innovate</h4>
+}
+
+@Html.ActionLink("Go to Recognitions", "Index")
