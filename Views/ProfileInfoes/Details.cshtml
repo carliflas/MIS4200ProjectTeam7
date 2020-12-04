@@ -7,7 +7,7 @@
 <div class="jumbotron" style="background-color: darkslateblue">
     <h1>Employee Profile</h1>
 
-    @*<a href="https://localhost:44302/CoreValues/Recognition" class="btn btn-primary btn-default">Personal Recognitions &raquo;</a>*@
+    @*<a href="https://cob.ohio.edu/mis4200team7/CoreValues/Recognition" class="btn btn-primary btn-default">Personal Recognitions &raquo;</a>*@
 </div>
 
 @Html.ActionLink("Personal Recognitions", "Recognition", "coreValues", new { id = Model.ProfileId }, null)
@@ -83,6 +83,8 @@
 
     </dl>
 </div>
-
+<div>
+    @Html.ActionLink("Go to All Profiles", "Index")
+</div>
 
 
